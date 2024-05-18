@@ -4,10 +4,10 @@ const { Storage } = require('@google-cloud/storage');
 const app = express();
 
 // Replace with your bucket name and credentials (if not using ADC)
-const bucketName = "your-bucket-name";
+const bucketName = "focussnap";
 const credentials = null; // Replace with service account credentials if needed
 
-const storage = new Storage({ projectId: 'your-project-id', credentials }); // Adjust for your setup
+const storage = new Storage({ projectId: 'cobalt-bond-422617-f5 ', credentials }); // Adjust for your setup
 
 async function downloadImage(imageName) {
   try {
