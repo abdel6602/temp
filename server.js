@@ -23,7 +23,7 @@ async function downloadImage(imageName) {
 }
 
 app.get('/download/:imageId', async (req, res) => {
-    const {imageId} = req.params.imageName;
+    const {imageId} = req.params;
     const imageName = `${imageId}.jpg`; // Adjust based on image format
     const imageData = await downloadImage(imageName);
 
