@@ -1,8 +1,9 @@
 const express = require('express');
 const { Storage } = require('@google-cloud/storage');
+const cors = require('cors');
 
 const app = express();
-
+app.use(cors({ origin: '*' }));
 // Replace with your bucket name and credentials (if not using ADC)
 const bucketName = "focussnap";
 const credentials = null; // Replace with service account credentials if needed
