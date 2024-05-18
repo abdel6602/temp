@@ -36,4 +36,20 @@ app.get('/download/:imageId', async (req, res) => {
   res.send(imageData);
 });
 
+app.get('isAvailable/:id', async (req, res) => {
+  const { id } = req.params;
+  const imageName = `images/${imageId}.jpg`;
+  const imageData = await downloadImage(imageName);
+  if (imageData){
+    return res.status(200).send('Image is available');
+  }
+  else{
+    while (!imageData){
+      const imageData = await downloadImage(imageName);
+    }
+    return res.status(200).send('Image is available');
+  }
+
+});
+
 app.listen(3000, '0.0.0.0' ,() => console.log('Server listening on port 3000'));
