@@ -22,9 +22,10 @@ async function downloadImage(imageName) {
   }
 }
 
-app.get('/download/:imageName', async (req, res) => {
-  const imageName = req.params.imageName;
-  const imageData = await downloadImage(imageName);
+app.get('/download/:imageId', async (req, res) => {
+    const {imageId} = req.params.imageName;
+    const imageName = `${imageId}.jpg`; // Adjust based on image format
+    const imageData = await downloadImage(imageName);
 
   if (!imageData) {
     return res.status(404).send('Image not found');
