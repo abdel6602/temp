@@ -10,6 +10,7 @@ const credentials = null; // Replace with service account credentials if needed
 
 const storage = new Storage({ projectId: 'cobalt-bond-422617-f5 ', credentials }); // Adjust for your setup
 
+
 async function downloadImage(imageName) {
   try {
     const bucket = storage.bucket(bucketName);
@@ -22,6 +23,8 @@ async function downloadImage(imageName) {
     return null;
   }
 }
+
+app.get('/', (req, res) => res.send('Hello World!'));
 
 app.get('/download/:imageId', async (req, res) => {
     const {imageId} = req.params;
