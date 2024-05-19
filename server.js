@@ -27,6 +27,7 @@ async function downloadImage(imageName) {
 app.get('/', (req, res) => res.send('Hello World!'));
 
 app.get('/download/:imageId', async (req, res) => {
+    console.log('Downloading image');
     const {imageId} = req.params;
     const imageName = `images/${imageId}.jpg`; // Adjust based on image format
     const imageData = await downloadImage(imageName);
@@ -40,6 +41,7 @@ app.get('/download/:imageId', async (req, res) => {
 });
 
 app.get('isAvailable/:id', async (req, res) => {
+  console.log('Checking if image is available');
   const { id } = req.params;
   const imageName = `images/${imageId}.jpg`;
   const imageData = await downloadImage(imageName);
